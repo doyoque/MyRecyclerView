@@ -2,6 +2,8 @@ package com.doyoque.myrecyclerview.model;
 
 import com.doyoque.myrecyclerview.R;
 
+import java.util.ArrayList;
+
 public class HeroesData {
     private static String[] heroNames = {
             "Ahmad Dahlan",
@@ -43,7 +45,7 @@ public class HeroesData {
     };
 
     @org.jetbrains.annotations.NotNull
-    static ArrayList<Hero> getListData() {
+    public static ArrayList<Hero> getListData() {
         ArrayList<Hero> list = new ArrayList<>();
         for (int position = 0; position < heroNames.length; position++) {
             Hero hero = new Hero();
