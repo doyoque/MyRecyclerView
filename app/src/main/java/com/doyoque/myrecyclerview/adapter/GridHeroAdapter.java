@@ -17,9 +17,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class GridHeroAdapter extends RecyclerView.Adapter<GridHeroAdapter.GridViewHolder> {
     private ArrayList<Hero> listHero;
+    private OnItemClickCallback onItemClickCallback;
 
     public GridHeroAdapter(ArrayList<Hero> list) {
         this.listHero = list;
+    }
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
     }
 
     @NonNull
@@ -35,6 +40,13 @@ public class GridHeroAdapter extends RecyclerView.Adapter<GridHeroAdapter.GridVi
                 .load(listHero.get(position).getPhoto())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.imgPhoto);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickCallback.onItemClicked(listHero.get(holder.getAdapterPosition()));
+            }
+        });
     }
 
     @Override
@@ -49,5 +61,9 @@ public class GridHeroAdapter extends RecyclerView.Adapter<GridHeroAdapter.GridVi
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
         }
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(Hero data);
     }
 }
