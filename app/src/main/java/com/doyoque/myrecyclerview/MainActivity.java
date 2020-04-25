@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         showRecyclerList();
     }
 
-
     private void showRecyclerList(){
         rvHeroes.setLayoutManager(new LinearLayoutManager(this));
         ListHeroAdapter listHeroAdapter = new ListHeroAdapter(list);
@@ -42,11 +41,13 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         setMode(item.getItemId());
         return super.onOptionsItemSelected(item);
     }
+
     public void setMode(int selectedMode) {
         switch (selectedMode) {
             case R.id.action_list:
