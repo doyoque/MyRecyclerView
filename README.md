@@ -1,6 +1,6 @@
 # Simple Implementation Of Recycle view
 
-Based on dicoding course of "Belajar Membuat Aplikasi Android Untuk Pemula".
+Based on dicoding course "Belajar Membuat Aplikasi Android Untuk Pemula".
 
 ## Fun thought
 
