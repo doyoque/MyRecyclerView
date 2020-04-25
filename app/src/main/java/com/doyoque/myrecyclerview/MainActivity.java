@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.doyoque.myrecyclerview.adapter.CardViewHeroAdapter;
 import com.doyoque.myrecyclerview.adapter.GridHeroAdapter;
 import com.doyoque.myrecyclerview.adapter.ListHeroAdapter;
 import com.doyoque.myrecyclerview.model.Hero;
@@ -32,16 +33,22 @@ public class MainActivity extends AppCompatActivity {
         showRecyclerList();
     }
 
-    private void showRecyclerList(){
+    private void showRecyclerList() {
         rvHeroes.setLayoutManager(new LinearLayoutManager(this));
         ListHeroAdapter listHeroAdapter = new ListHeroAdapter(list);
         rvHeroes.setAdapter(listHeroAdapter);
     }
 
-    private void showRecyclerGrid(){
+    private void showRecyclerGrid() {
         rvHeroes.setLayoutManager(new GridLayoutManager(this, 2));
         GridHeroAdapter gridHeroAdapter = new GridHeroAdapter(list);
         rvHeroes.setAdapter(gridHeroAdapter);
+    }
+
+    private void showRecyclerCardView() {
+        rvHeroes.setLayoutManager(new LinearLayoutManager(this));
+        CardViewHeroAdapter cardViewHeroAdapter = new CardViewHeroAdapter(list);
+        rvHeroes.setAdapter(cardViewHeroAdapter);
     }
 
     @Override
@@ -65,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 showRecyclerGrid();
                 break;
             case R.id.action_cardview:
+                showRecyclerCardView();
                 break;
         }
     }
